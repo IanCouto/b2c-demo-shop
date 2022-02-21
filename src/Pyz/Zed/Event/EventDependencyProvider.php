@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\Event;
 
-use Pyz\Zed\ProductStorage\Communication\Plugin\Event\Subscriber\ProductStorageEventSubscriber;
+use Pyz\Zed\AntelopeSearch\Communication\Plugin\Event\Subscriber\AntelopeSearchEventSubscriber;
 use Spryker\Zed\AvailabilityNotification\Communication\Plugin\Event\Subscriber\AvailabilityNotificationSubscriber;
 use Spryker\Zed\AvailabilityStorage\Communication\Plugin\Event\Subscriber\AvailabilityStorageEventSubscriber;
 use Spryker\Zed\CategoryImageStorage\Communication\Plugin\Event\Subscriber\CategoryImageStorageEventSubscriber;
@@ -76,7 +76,7 @@ class EventDependencyProvider extends SprykerEventDependencyProvider
         $eventSubscriberCollection->add(new ConfigurableBundleTemplateImageStorageEventSubscriber());
         $eventSubscriberCollection->add(new NavigationStorageEventSubscriber());
         $eventSubscriberCollection->add(new PriceProductStorageEventSubscriber());
-        $eventSubscriberCollection->add(new ProductStorageEventSubscriber());
+        //$eventSubscriberCollection->add(new ProductStorageEventSubscriber());
         $eventSubscriberCollection->add(new ProductCategoryFilterStorageEventSubscriber());
         $eventSubscriberCollection->add(new ProductImageStorageEventSubscriber());
         $eventSubscriberCollection->add(new CategoryImageStorageEventSubscriber());
@@ -112,7 +112,8 @@ class EventDependencyProvider extends SprykerEventDependencyProvider
         $eventSubscriberCollection->add(new ConfigurableBundleTemplateImagePageSearchEventSubscriber());
 
         $eventSubscriberCollection->add(new PublisherSubscriber());
-
+        $eventSubscriberCollection->add(new AntelopeSearchEventSubscriber());
+        
         return $eventSubscriberCollection;
     }
 }
