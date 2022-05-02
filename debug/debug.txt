@@ -1,0 +1,10 @@
+next Object has a invalid null parameter
+[29-04-22 10:35:54am] - Antelope - id=1 - color= - name=Bob
+[29-04-22 10:35:54am] - Antelope - id=2 - color=gray - name=Luke
+[29-04-22 10:35:54am] - Antelope - id=3 - color=pink - name=Lucy
+[29-04-22 10:35:54am] - Antelope - id=4 - color=pink - name=Alice
+next Object has a invalid color
+[29-04-22 10:37:11am] - Antelope - id=1 - color= - name=Bob
+[29-04-22 10:37:11am] - Antelope - id=2 - color=gray - name=Luke
+[29-04-22 10:37:11am] - Antelope - id=3 - color=pink - name=Lucy
+[29-04-22 10:37:11am] - Antelope - id=4 - color=pink - name=Alice

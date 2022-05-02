@@ -1,5 +1,5 @@
 abstract_sku,concrete_sku,price_type,store,currency,value_net,value_gross,price_data.volume_prices
-001,,DEFAULT,AT,EUR,8999,9999,
+001,,DEFAULT,AT,EUR,89999,99999,
 002,,DEFAULT,AT,EUR,8999,9999,
 003,,DEFAULT,AT,EUR,5850,6500,
 004,,DEFAULT,AT,EUR,6300,7000,

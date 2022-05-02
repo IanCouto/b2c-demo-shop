@@ -8,6 +8,7 @@
 namespace Pyz\Zed\DataImport\Business;
 
 use Pyz\Zed\DataImport\Business\Model\Antelope\AntelopeWriterStep;
+use Pyz\Zed\DataImport\Business\Model\Antelope\AntelopeValidation;
 use Generated\Shared\Transfer\DataImportConfigurationActionTransfer;
 use Generated\Shared\Transfer\DataImporterConfigurationTransfer;
 use Pyz\Zed\DataImport\Business\CombinedProduct\Product\CombinedAttributesExtractorStep;
@@ -1829,12 +1830,12 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
     {
         $dataImporter = $this->getCsvDataImporterFromConfig(
             $this->getConfig()->buildImporterConfigurationByDataImportConfigAction($dataImportConfigurationActionTransfer)
-        );
-
+        );  //echo '<script>console.log("cor nula"); </script>';
+        
         $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker();
         $dataSetStepBroker
             ->addStep(new AntelopeWriterStep());
-
+        
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);
 
         return $dataImporter;
