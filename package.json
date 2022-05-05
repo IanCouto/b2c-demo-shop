@@ -36,7 +36,7 @@
         "@webcomponents/webcomponents-platform": "~1.0.1",
         "@webcomponents/webcomponentsjs": "~2.4.0",
         "classlist-polyfill": "~1.2.0",
-        "core-js": "~3.4.1",
+        "core-js": "~3.21.1",
         "element-closest": "~3.0.0",
         "element-remove": "~1.0.4",
         "intersection-observer": "~0.10.0",
