@@ -2,7 +2,7 @@
 <database xmlns="spryker:schema-01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="zed" xsi:schemaLocation="spryker:schema-01 https://static.spryker.com/schema-01.xsd" namespace="Orm\Zed\Discount\Persistence" package="src.Orm.Zed.Discount.Persistence">
   <table name="spy_discount">
     <index name="index-spy_discount-fk_discount_voucher_pool">
-      <index-column name="discount_voucher_pool"/>
+      <index-column name="fk_discount_voucher_pool"/>
     </index>
     <index name="index-spy_discount-fk_store">
       <index-column name="fk_store"/>
