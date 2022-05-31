@@ -35,6 +35,13 @@ class AntelopeValidation extends AntelopeWriterStep
         return true;
     }
 
+    private function checkSpecialChar($str, $file, $atributte){
+        if (str_contains("(?:(?![a-zA-Z]).)*",$str)){
+            fwrite($file, "next object has a invalid ".$atributte."\n");
+            return false;
+        }
+        return true;
+    }
 
     public static function create()
     {
