@@ -10,34 +10,28 @@ class AntelopeValidation extends AntelopeWriterStep
 {
     public function validate(PyzAntelope $antelopeEntity)
     {   
-        $file = fopen("debug/debug.txt","a");
-        $iscorrect = true;
-        $timezone  = -3; 
-
-        $str = gmdate("[d-m-y H:i:sa]", time() + 3600*($timezone+date("I"))).
-            " - Antelope - id=".$antelopeEntity->getIdAntelope();
-
-        $iscorrect = $this->checkNullAtribute($antelopeEntity->getColor(), $file,"color"); //color
+        $color = $antelopeEntity->getColor();
+        $name = $antelopeEntity->getName();
+        $id = $antelopeEntity->getIdAntelope();
+        $isNameCorrect = false;
+        $isCollorCorrect = false;
+        
+        //checking color
+        if($this->validadeAtributte($color, $antelopeEntity, "COLOR"))
+            $isCollorCorrect = true;
         $str = $str." - color=".$antelopeEntity->getColor();
-        $iscorrect = $this->checkNullAtribute($antelopeEntity->getName(), $file,"name"); //name
+
+        //checking name
+        if($this->validadeAtributte($name, $antelopeEntity, "NAME"))
+            $isNameCorrect = true;
         $str = $str." - name=".$antelopeEntity->getName();
 
-        fwrite($file, $str."\n");
-        fclose($file);
-        return $iscorrect;
-    }
-
-    private function checkNullAtribute($str, $file, $atributte){
-        if (empty($str)){
-            fwrite($file, "next object has a invalid ".$atributte."\n");
-            return false;
-        }
         return true;
     }
 
-    private function checkSpecialChar($str, $file, $atributte){
-        if (str_contains("(?:(?![a-zA-Z]).)*",$str)){
-            fwrite($file, "next object has a invalid ".$atributte."\n");
+    private function validadeAtributte($atributte, $antelopeEntity, $type){
+        if (empty(trim($atributte)) || preg_match("/[^A-zÀ-ſ ]/",$atributte)){
+            echo "\nThe following object has a invalid ".$type.":\n".$antelopeEntity."\n";
             return false;
         }
         return true;
@@ -47,5 +41,4 @@ class AntelopeValidation extends AntelopeWriterStep
     {
        return new AntelopeValidation;
     }
-
 }

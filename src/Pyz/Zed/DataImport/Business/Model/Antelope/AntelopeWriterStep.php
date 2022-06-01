@@ -10,10 +10,10 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 use Pyz\Zed\DataImport\Business\Model\Antelope\AntelopeValidation;
 
 class AntelopeWriterStep extends PublishAwareStep implements DataImportStepInterface
-{
+{   
     public const KEY_NAME = 'name';
     public const KEY_COLOR = 'color';
-
+    
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
      *
