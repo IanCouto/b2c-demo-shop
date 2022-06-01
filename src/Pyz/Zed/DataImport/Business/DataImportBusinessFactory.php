@@ -1353,6 +1353,7 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
     }
 
     /**
+     * teste
      * @return \Spryker\Zed\Store\Business\StoreFacadeInterface
      */
     protected function getStoreFacade(): StoreFacadeInterface
