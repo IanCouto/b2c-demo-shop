@@ -13,25 +13,23 @@ class AntelopeValidation extends AntelopeWriterStep
         $color = $antelopeEntity->getColor();
         $name = $antelopeEntity->getName();
         $id = $antelopeEntity->getIdAntelope();
-        $isNameCorrect = false;
-        $isCollorCorrect = false;
         
         //checking color
-        if($this->validadeAtributte($color, $antelopeEntity, "COLOR"))
-            $isCollorCorrect = true;
-        $str = $str." - color=".$antelopeEntity->getColor();
-
+        if(!$this->validadeAtributte($color, $antelopeEntity, "COLOR"))
+            return false;
+        
         //checking name
-        if($this->validadeAtributte($name, $antelopeEntity, "NAME"))
-            $isNameCorrect = true;
-        $str = $str." - name=".$antelopeEntity->getName();
-
+        if(!$this->validadeAtributte($name, $antelopeEntity, "NAME"))
+            return false;
+        
         return true;
     }
 
     private function validadeAtributte($atributte, $antelopeEntity, $type){
-        if (empty(trim($atributte)) || preg_match("/[^A-zÀ-ſ ]/",$atributte)){
-            echo "\nThe following object has a invalid ".$type.":\n".$antelopeEntity."\n";
+        //checking for atributes that are empty, with only white spaces or with spacial chars
+        if (empty(trim($atributte)) || preg_match("/[^a-zA-ZÀ-ÿ ]/",$atributte)){ 
+            echo "\033[01;31mERROR!!!\033[0m";
+            echo "\nThe following object has a invalid \033[01;31m".$type."\033[0m:\n".$antelopeEntity."\n";
             return false;
         }
         return true;
