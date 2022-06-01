@@ -123,6 +123,7 @@ class RabbitMqConfig extends SprykerRabbitMqConfig
             TaxStorageConfig::TAX_SET_SYNC_STORAGE_QUEUE,
             SalesReturnSearchConfig::SYNC_SEARCH_RETURN,
             AssetStorageConfig::ASSET_SYNC_STORAGE_QUEUE,
+            'sync.search.antelope',
         ];
     }
 

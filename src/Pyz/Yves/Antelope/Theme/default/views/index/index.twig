@@ -1,0 +1,12 @@
+{% extends template('page-blank') %}
+
+{% define data = {
+    antelope: _view.antelope
+} %}
+
+{% block body %}
+    <div style="background-color: {{ data.antelope.color }};">
+        <div>Name: {{ data.antelope.name }}</div>
+        <div>Color: {{ data.antelope.color }}</div>
+    </div>
+{% endblock %}
