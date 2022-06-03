@@ -14,12 +14,12 @@ class AntelopeValidation extends AntelopeWriterStep
         $name = $antelopeEntity->getName();
         $id = $antelopeEntity->getIdAntelope();
         
-        //checking color
-        if(!$this->validadeAtributte($color, $antelopeEntity, "COLOR"))
-            return false;
-        
         //checking name
         if(!$this->validadeAtributte($name, $antelopeEntity, "NAME"))
+            return false;
+
+        //checking color
+        if(!$this->validadeAtributte($color, $antelopeEntity, "COLOR"))
             return false;
         
         return true;
@@ -28,9 +28,10 @@ class AntelopeValidation extends AntelopeWriterStep
     private function validadeAtributte($atributte, $antelopeEntity, $type){
         //checking for atributes that are empty, with only white spaces or with spacial chars
         if (empty(trim($atributte)) || preg_match("/[^a-zA-ZÀ-ÿ ]/",$atributte)){ 
-            echo "\033[01;31mERROR!!!\033[0m";
+            echo "\033[01;31mERROR!!!\033[0m";//send e red error alert
             echo "\nThe following object has a invalid \033[01;31m".$type."\033[0m:\n".$antelopeEntity."\n";
             return false;
+            
         }
         return true;
     }

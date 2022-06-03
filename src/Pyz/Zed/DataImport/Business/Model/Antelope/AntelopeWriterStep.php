@@ -29,10 +29,10 @@ class AntelopeWriterStep extends PublishAwareStep implements DataImportStepInter
         $antelopeEntity->setColor($dataSet[static::KEY_COLOR]);
         $validation = AntelopeValidation::create()->validate($antelopeEntity);
         
-        //if ($validation && ($antelopeEntity->isNew() || $antelopeEntity->isModified())) {
+        if ($validation && ($antelopeEntity->isNew() || $antelopeEntity->isModified())) {
             $antelopeEntity->save();
             $this->addPublishEvents(AntelopeEvents::ENTITY_PYZ_ANTELOPE_CREATE, $antelopeEntity->getIdAntelope());
-        //}
+        }
         
     }
 }
